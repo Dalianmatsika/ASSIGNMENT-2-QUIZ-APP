@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ScoreActivity : AppCompatActivity() {
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score)
@@ -22,9 +24,9 @@ class ScoreActivity : AppCompatActivity() {
         val score = intent.getIntExtra("score", 0)
 
         // Display the user's score.
-        scoreText.text = "Your Score: $score out of ${5}"  // Corrected string interpolation
+        scoreText.text = "Your Score: $score out of ${5}"  // Fixed string formatting
 
-        // Provide feedback based on the score.
+        // Give input according to the rating.
         val feedback = when {
             score >= 3 -> "Great job!"
             else -> "Keep practising!"

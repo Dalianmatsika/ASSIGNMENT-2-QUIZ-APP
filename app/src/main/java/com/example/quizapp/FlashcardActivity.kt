@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -93,12 +94,13 @@ class FlashcardActivity : AppCompatActivity() {
      * Checks the user's answer and updates the score.
      * @param userAnswer The user's answer (true or false).
      */
+    @SuppressLint("SetTextI18n")
     private fun checkAnswer(userAnswer: Boolean) {
-        // Get the correct answer for the current question.
+        // Find the right answer to the current question.
         val correctAnswer = answers[currentQuestionIndex]
         // Compare the user's answer with the correct answer.
         if (userAnswer == correctAnswer) {
-            // If the answer is correct, update the score and display "Correct!".
+            // When the answer is accurate, modify the score and present 'Correct!'.
             score++
             feedbackText.text = "Correct!"
         } else {
